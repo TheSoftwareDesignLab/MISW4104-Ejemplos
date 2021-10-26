@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.vinilos_misw">
+    package="com.example.vinyls_jetpack_application">
 
     <application
         android:allowBackup="true"
@@ -8,8 +8,12 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.Vinilos_MISW">
-        <activity android:name=".MainActivity">
+        android:theme="@style/Theme.Vinyls_Jetpack_Application">
+        <activity
+            android:name=".ui.MainActivity"
+            android:exported="true"
+            android:label="@string/app_name"
+            android:theme="@style/Theme.Vinyls_Jetpack_Application.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

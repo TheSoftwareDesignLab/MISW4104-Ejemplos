@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/collectorFragment">
+    <fragment
+        android:id="@+id/collectorFragment"
+        android:name="com.example.vinyls_jetpack_application.ui.CollectorFragment"
+        android:label="collector_fragment"
+        tools:layout="@layout/collector_fragment" >
+        <action
+            android:id="@+id/action_collectorFragment_to_albumFragment"
+            app:destination="@id/albumFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/albumFragment"
+        android:name="com.example.vinyls_jetpack_application.ui.AlbumFragment"
+        android:label="album_fragment"
+        tools:layout="@layout/album_fragment" >
+        <action
+            android:id="@+id/action_albumFragment_to_commentFragment"
+            app:destination="@id/commentFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/commentFragment"
+        android:name="com.example.vinyls_jetpack_application.ui.CommentFragment"
+        android:label="comment_fragment"
+        tools:layout="@layout/comment_fragment" />
+</navigation>
