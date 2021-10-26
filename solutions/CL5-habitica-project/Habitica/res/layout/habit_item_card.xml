@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="?attr/colorContentBackground">
+
+    <LinearLayout
+        android:id="@+id/main_task_wrapper"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:baselineAligned="false"
+        android:foreground="?selectableItemBackground"
+        android:orientation="horizontal"
+        android:layout_marginHorizontal="@dimen/task_spacing_horizontal"
+        android:layout_marginVertical="@dimen/task_spacing_vertical"
+        android:background="@drawable/task_background"
+        android:clipChildren="true"
+        android:minHeight="@dimen/task_min_height">
+        <FrameLayout
+            android:id="@+id/btnPlusWrapper"
+            android:layout_width="@dimen/button_width"
+            android:layout_height="match_parent">
+            <View
+                android:id="@+id/button_plus_circle_view"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_gravity="center"/>
+            <ImageView
+                android:id="@+id/btnPlusIconView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="center"
+                android:layout_gravity="center"
+                android:src="@drawable/habit_plus" />
+
+            <Button
+                android:id="@+id/btnPlus"
+                style="@style/HabitButton"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/selection_highlight"
+                android:contentDescription="@string/positive_habit_form" />
+        </FrameLayout>
+        <include layout="@layout/task_main_content" />
+        <ProgressBar
+            android:id="@+id/syncing_view"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_gravity="center_vertical"
+            android:layout_marginStart="@dimen/spacing_small"
+            android:layout_marginEnd="@dimen/spacing_small"
+            style="@style/Widget.AppCompat.ProgressBar"/>
+        <ImageButton
+            android:id="@+id/error_icon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:background="@color/transparent"
+            android:src="@drawable/ic_warning_black"
+            android:layout_marginStart="@dimen/spacing_small"
+            android:layout_marginEnd="@dimen/spacing_small"/>
+        <FrameLayout
+            android:id="@+id/btnMinusWrapper"
+            android:layout_width="@dimen/button_width"
+            android:layout_height="match_parent">
+            <View
+                android:id="@+id/button_minus_circle_view"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_gravity="center"/>
+            <ImageView
+                android:id="@+id/btnMinusIconView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:scaleType="center"
+                android:src="@drawable/habit_minus"/>
+            <Button
+                android:id="@+id/btnMinus"
+                style="@style/HabitButton"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/selection_highlight"
+                android:contentDescription="@string/negative_habit_form" />
+        </FrameLayout>
+    </LinearLayout>
+</FrameLayout>

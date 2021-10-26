@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:id="@+id/main_task_wrapper"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:clickable="false"
+        android:orientation="horizontal"
+        android:layout_marginHorizontal="@dimen/task_spacing_horizontal"
+        android:layout_marginVertical="@dimen/task_spacing_vertical"
+        android:background="@drawable/task_background"
+        android:clipChildren="true"
+        android:minHeight="@dimen/task_min_height">
+
+        <include layout="@layout/task_main_content" />
+
+        <ProgressBar
+            android:id="@+id/syncing_view"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_gravity="center_vertical"
+            android:layout_marginStart="@dimen/spacing_small"
+            android:layout_marginEnd="@dimen/spacing_small"
+            style="@style/Widget.AppCompat.ProgressBar"/>
+        <ImageButton
+            android:id="@+id/error_icon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:background="@color/transparent"
+            android:src="@drawable/ic_warning_black"
+            android:layout_marginStart="@dimen/spacing_small"
+            android:layout_marginEnd="@dimen/spacing_small"/>
+        <LinearLayout
+            android:id="@+id/buyButton"
+            android:layout_width="56dp"
+            android:layout_height="fill_parent"
+            android:background="@color/reward_buy_button_bg"
+            android:gravity="center"
+            android:orientation="vertical">
+            <ImageView
+                android:id="@+id/gold_icon"
+                android:layout_width="22dp"
+                android:layout_height="22dp"
+                android:paddingBottom="2dp"/>
+            <TextView
+                android:id="@+id/priceLabel"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/yellow_10"
+                android:gravity="center_horizontal"
+                tools:text="150"
+                style="@style/Body1"/>
+        </LinearLayout>
+    </LinearLayout>
+</FrameLayout>

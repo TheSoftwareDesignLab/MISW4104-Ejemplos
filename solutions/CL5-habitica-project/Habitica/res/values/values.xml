@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string-array name="repeatables_frequencies">
+        <item>@string/repeatables_frequency_daily</item>
+        <item>@string/repeatables_frequency_weekly</item>
+        <item>@string/repeatables_frequency_monthly</item>
+        <item>@string/repeatables_frequency_yearly</item>
+    </string-array>
+
+    <string-array name="weekdays">
+        <item>@string/monday</item>
+        <item>@string/tuesday</item>
+        <item>@string/wednesday</item>
+        <item>@string/thursday</item>
+        <item>@string/friday</item>
+        <item>@string/saturday</item>
+        <item>@string/sunday</item>
+    </string-array>
+
+    <string-array name="weekdayValues">
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+        <item>7</item>
+        <item>1</item>
+    </string-array>
+
+    <string-array name="avatar_sizes">
+        <item>@string/avatar_size_slim</item>
+        <item>@string/avatar_size_broad</item>
+    </string-array>
+
+    <string-array name="TaskDisplayTypes">
+        <item>Standard</item>
+        <item>Compact</item>
+        <item>Minimal</item>
+    </string-array>
+
+    <string-array name="TaskDisplayValues">
+        <item>standard</item>
+        <item>compact</item>
+        <item>minimal</item>
+    </string-array>
+
+    <string-array name="Language">
+        <item>English</item>
+        <item>Български</item>
+        <item>Deutsch</item>
+        <item>British English</item>
+        <item>Español</item>
+        <item>Français</item>
+        <item>עברית</item>
+        <item>Hrvatski</item>
+        <item>Bahasa Indonesia</item>
+        <item>Italiano</item>
+        <item>日本語</item>
+        <item>Nederlands</item>
+        <item>Polski</item>
+        <item>Português</item>
+        <item>Português Brasileiro</item>
+        <item>Русский</item>
+        <item>Türk</item>
+        <item>中文（简体）</item>
+        <item>中文（正體）</item>
+        <item>한국어</item>
+    </string-array>
+
+    <string-array name="LanguageValues">
+        <item>en</item>
+        <item>bg</item>
+        <item>de</item>
+        <item>en_GB</item>
+        <item>es</item>
+        <item>fr</item>
+        <item>iw</item>
+        <item>hr</item>
+        <item>in</item>
+        <item>it</item>
+        <item>ja</item>
+        <item>nl</item>
+        <item>pl</item>
+        <item>pt</item>
+        <item>pt_BR</item>
+        <item>ru</item>
+        <item>tr</item>
+        <item>zh</item>
+        <item>zh_TW</item>
+        <item>ko</item>
+    </string-array>
+
+
+    <string-array name="AudioThemes">
+        <item>Off</item>
+        <item>Daniel the Bard</item>
+        <item>Watts\' Theme</item>
+        <item>Gokul Theme</item>
+        <item>LuneFox\'s Theme</item>
+        <item>Rosstavo\'s Theme</item>
+        <item>Dewin\'s Theme</item>
+        <item>Airu\'s Theme</item>
+        <item>Beatscribe\'s NES Theme</item>
+        <item>Arashi\'s Theme</item>
+        <item>Triumph Theme</item>
+        <item>Lunasol Theme</item>
+        <item>SpacePenguin\'s Theme</item>
+        <item>MAFL Theme</item>
+        <item>Pizilden\'s Theme</item>
+        <item>Farvoid Theme</item>
+    </string-array>
+
+    <string-array name="AudioValues">
+        <item>off</item>
+        <item>danielTheBard</item>
+        <item>wattsTheme</item>
+        <item>gokulTheme</item>
+        <item>luneFoxTheme</item>
+        <item>rosstavoTheme</item>
+        <item>dewinTheme</item>
+        <item>airuTheme</item>
+        <item>beatscribeNesTheme</item>
+        <item>arashiTheme</item>
+        <item>triumphTheme</item>
+        <item>lunasolTheme</item>
+        <item>spacePenguinTheme</item>
+        <item>maflTheme</item>
+        <item>pizildenTheme</item>
+        <item>farvoidTheme</item>
+    </string-array>
+
+
+    <string-array name="AppThemes">
+        <item>Default</item>
+        <item>Maroon</item>
+        <item>Red</item>
+        <item>Orange</item>
+        <item>Green</item>
+        <item>Teal</item>
+        <item>Blue</item>
+    </string-array>
+
+    <string-array name="AppThemeValues">
+        <item>purple</item>
+        <item>maroon</item>
+        <item>red</item>
+        <item>orange</item>
+        <item>green</item>
+        <item>teal</item>
+        <item>blue</item>
+    </string-array>
+
+    <string-array name="AppThemeModes">
+        <item>Follow System</item>
+        <item>Always Light</item>
+        <item>Always Dark</item>
+    </string-array>
+
+    <string-array name="AppThemeModeValues">
+        <item>system</item>
+        <item>light</item>
+        <item>dark</item>
+    </string-array>
+
+
+    <string-array name="launch_screen_types">
+        <item>@string/habits</item>
+        <item>@string/dailies</item>
+        <item>@string/todos</item>
+        <item>@string/rewards</item>
+        <item>@string/party</item>
+    </string-array>
+
+    <string-array name="launch_screen_values">
+        <item>/user/tasks/habits</item>
+        <item>/user/tasks/dailies</item>
+        <item>/user/tasks/todos</item>
+        <item>/user/tasks/rewards</item>
+        <item>/party</item>
+    </string-array>
+
+    <string-array name="server_urls">
+        <item>https://habitica.com</item>
+        <item>https://habitrpg-staging.herokuapp.com</item>
+        <item>https://habitrpg-beta.herokuapp.com</item>
+        <item>https://habitrpg-gamma.herokuapp.com</item>
+        <item>https://habitrpg-delta.herokuapp.com</item>
+    </string-array>
+
+</resources>

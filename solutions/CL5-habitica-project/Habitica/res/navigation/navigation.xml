@@ -1,0 +1,470 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_nav"
+    app:startDestination="@id/tasksFragment">
+
+    <fragment
+        android:id="@+id/equipmentOverviewFragment"
+        android:name="com.habitrpg.android.habitica.ui.fragments.inventory.equipment.EquipmentOverviewFragment"
+        android:label="@string/sidebar_equipment" >
+        <deepLink app:uri="habitica.com/inventory/equipment" />
+        <action
+            android:id="@+id/openEquipmentDetail"
+            app:destination="@id/equipmentDetailFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/equipmentDetailFragment"
+        android:name="com.habitrpg.android.habitica.ui.fragments.inventory.equipment.EquipmentDetailFragment"
+        android:label="@string/sidebar_equipment" >
+        <argument
+            android:name="type"
+            app:argType="string" />
+        <argument android:name="isCostume"
+            app:argType="boolean"/>
+        <argument
+            android:name="equippedGear"
+            app:argType="string" />
+    </fragment>
+    <fragment
+        android:id="@+id/tasksFragment"
+        android:name="com.habitrpg.android.habitica.ui.fragments.tasks.TasksFragment">
+        <argument
+            android:name="taskType"
+            app:argType="string"
+            app:nullable="true"
+            android:defaultValue=""/>
+        <deepLink app:uri="habitica.com/user/tasks/{taskType}" />
+        <deepLink app:uri="habitica.com/tasks" />
+        <deepLink app:uri="habitica.com" />
+    </fragment>
+    <fragment
+        android:id="@+id/partyFragment"
+        android:name="com.habitrpg.android.habitica.ui.fragments.social.party.PartyFragment"
+        android:label="@string/sidebar_party">
+        <deepLink app:uri="habitica.com/party" />
+        <action
+            android:id="@+id/openQuestDetail"
+            app:destination="@id/questDetailFragment" />
+        <argument
+            android:name="tabToOpen"
+            app:argType="integer"
+            android:defaultValue="0"/>
+        <argument
+            android:name="partyID"
+            app:argType="string"
+            app:nullable="true"
+            android:defaultValue=" " />
+    </fragment>
+    <fragment
+        android:id="@+id/noPartyFragment"
+        android:name="com.habitrpg.android.habitica.ui.fragments.social.party.NoPartyFragmentFragment"
+        android:label="@string/sidebar_party">
+    </fragment>
+    <fragment
+        android:id="@+id/questDetailFragment"
+        android:name="com.habitrpg.android.habitica.ui.fragments.social.QuestDetailFragment">
+        <deepLink app:uri="habitica.com/party/quest" />
+    </fragment>
+    <fragment
+        android:id="@+id/skillsFragment"
+        android:name="com.habitrpg.android.habitica.ui.fragments.skills.SkillsFragment"
+        android:label="@string/sidebar_skills">
+        <deepLink app:uri="habitica.com/user/skills" />
+    </fragment>
+    <fragment
+        android:id="@+id/statsFragment"
+        android:name="com.habitrpg.android.habitica.ui.fragments.StatsFragment"
+        android:label="@string/stats">
+        <deepLink app:uri="habitica.com/user/stats" />
+    </fragment>
+    <fragment
+        android:id="@+id/tavernFragment"
+        android:name="com.habitrpg.android.habitica.ui.fragments.social.TavernFragment"
+        android:label="@string/sidebar_tavern">
+        <deepLink app:uri="habitica.com/tavern" />
+    </fragment>
+    <fragment
+        android:id="@+id/guildOverviewFragment"
+        android:name="com.habitrpg.android.habitica.ui.fragments.social.guilds.GuildOverviewFragment"
+        android:label="@string/sidebar_guilds" >
+        <deepLink app:uri="habitica.com/groups/myGuilds" />
+        <action
+            android:id="@+id/openGuildDetail"
+            app:destination="@id/guildFragment" />
+        <action
+            android:id="@+id/openPublicGuilds"
+            app:destination="@id/publicGuildsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/challengesOverviewFragment"
+        android:name="com.habitrpg.android.habitica.ui.fragments.social.challenges.ChallengesOverviewFragment"
+        android:label="@string/sidebar_challenges" >
+        <deepLink app:uri="habitica.com/challenges/myChallenges" />
+        <deepLink app:uri="habitica.com/challenges/findChallenges" />
+        <action
+            android:id="@+id/openChallengeDetail"
+            app:destination="@id/challengeDetailFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/avatarOverviewFragment"
+        android:name="com.habitrpg.android.habitica.ui.fragments.inventory.customization.AvatarOverviewFragment"
+        android:label="@string/sidebar_avatar" >
+        <deepLink app:uri="habitica.com/user/avatar" />
+        <action
+            android:id="@+id/openAvatarDetail"
+            app:destination="@id/avatarCustomizationFragment" />
+        <action
+            android:id="@+id/openAvatarEquipment"
+            app:destination="@id/avatarEquipmentFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/itemsFragment"
+        android:name="com.habitrpg.android.habitica.ui.fragments.inventory.items.ItemsFragment"
+        android:label="@string/sidebar_items">
+        <deepLink app:uri="habitica.com/inventory/items" />
+        <argument
+            android:name="itemType"
+            app:argType="string"
+            android:defaultValue="eggs"
+            app:nullable="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/stableFragment"
+        android:name="com.habitrpg.android.habitica.ui.fragments.inventory.stable.StableFragment"
+        android:label="@string/sidebar_stable" >
+        <deepLink app:uri="habitica.com/inventory/stable" />
+        <action
+            android:id="@+id/openPetDetail"
+            app:destination="@id/petDetailRecyclerFragment" />
+        <action
+            android:id="@+id/openMountDetail"
+            app:destination="@id/mountDetailRecyclerFragment" />
+    </fragment>
+    <activity
+        android:id="@+id/subscriptionPurchaseActivity"
+        android:name="com.habitrpg.android.habitica.ui.activities.GemPurchaseActivity"
+        android:label="@string/gem_purchase_toolbartitle" >
+        <deepLink app:uri="habitica.com/user/settings/subscription" />
+        <argument
+            android:name="openSubscription"
+            app:argType="boolean"
+            android:defaultValue="true" />
+    </activity>
+    <activity
+        android:id="@+id/gemPurchaseActivity"
+        android:name="com.habitrpg.android.habitica.ui.activities.GemPurchaseActivity"
+        android:label="@string/gem_purchase_toolbartitle">
+        <deepLink app:uri="habitica.com/user/settings/gems" />
+        <argument
+            android:name="openSubscription"
+            app:argType="boolean"
+            android:defaultValue="false" />
+    </activity>
+    <activity
+        android:id="@+id/giftGemsActivity"
+        android:name="com.habitrpg.android.habitica.ui.activities.GiftGemsActivity"
+        android:label="@string/gift_gems" >
+        <argument
+            android:name="userID"
+            app:argType="string"
+            app:nullable="true" />
+        <argument
+            android:name="username"
+            app:argType="string"
+            app:nullable="true" />
+    </activity>
+    <activity
+        android:id="@+id/giftSubscriptionActivity"
+        android:name="com.habitrpg.android.habitica.ui.activities.GiftSubscriptionActivity"
+        android:label="@string/gift_subscription" >
+        <argument
+            android:name="userID"
+            app:argType="string"
+            app:nullable="true" />
+        <argument
+            android:name="username"
+            app:argType="string"
+            app:nullable="true" />
+    </activity>
+    <fragment
+        android:id="@+id/newsFragment"
+        android:name="com.habitrpg.android.habitica.ui.fragments.NewsFragment"
+        android:label="@string/sidebar_news">
+        <deepLink app:uri="habitica.com/static/new-stuff" />
+    </fragment>
+    <fragment
+        android:id="@+id/FAQOverviewFragment"
+        android:name="com.habitrpg.android.habitica.ui.fragments.support.FAQOverviewFragment"
+        android:label="@string/habitica_questions">
+        <deepLink app:uri="habitica.com/static/faq" />
+        <action
+            android:id="@+id/openFAQDetail"
+            app:destination="@id/FAQDetailFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/FAQDetailFragment"
+        android:name="com.habitrpg.android.habitica.ui.fragments.support.FAQDetailFragment"
+        android:label="@string/sidebar_help" >
+        <argument
+            android:name="position"
+            app:argType="integer"
+            android:defaultValue="0"/>
+        <argument
+            android:name="question"
+            app:argType="string"
+            app:nullable="true"/>
+        <argument
+            android:name="answer"
+            app:argType="string"
+            app:nullable="true"/>
+    </fragment>
+    <fragment
+        android:id="@+id/aboutFragment"
+        android:name="com.habitrpg.android.habitica.ui.fragments.AboutFragment"
+        android:label="@string/sidebar_about">
+        <deepLink app:uri="habitica.com/static/about" />
+    </fragment>
+    <fragment
+        android:id="@+id/inboxFragment"
+        android:name="com.habitrpg.android.habitica.ui.fragments.social.InboxOverviewFragment"
+        android:label="@string/sidebar_inbox">
+        <deepLink app:uri="habitica.com/private-messages" />
+        <action
+            android:id="@+id/openInboxDetail"
+            app:destination="@id/inboxMessageListFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/guildFragment"
+        android:name="com.habitrpg.android.habitica.ui.fragments.social.guilds.GuildFragment"
+        android:label="@string/guild" >
+        <deepLink app:uri="habitica.com/groups/guild/{groupID}" />
+        <argument
+            android:name="groupID"
+            app:argType="string" />
+        <argument
+            android:name="isMember"
+            app:argType="boolean"
+            android:defaultValue="false"/>
+        <argument
+            android:name="tabToOpen"
+            app:argType="integer"
+            android:defaultValue="0"/>
+    </fragment>
+    <fragment
+        android:id="@+id/publicGuildsFragment"
+        android:name="com.habitrpg.android.habitica.ui.fragments.social.guilds.GuildListFragment"
+        android:label="@string/public_guilds" >
+        <action
+            android:id="@+id/openGuildDetail"
+            app:destination="@id/guildFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/avatarCustomizationFragment"
+        android:name="com.habitrpg.android.habitica.ui.fragments.inventory.customization.AvatarCustomizationFragment"
+        android:label="@string/sidebar_avatar" >
+        <argument
+            android:name="type"
+            app:argType="string" />
+        <argument
+            android:name="category"
+            app:argType="string" />
+    </fragment>
+    <fragment
+        android:id="@+id/avatarEquipmentFragment"
+        android:name="com.habitrpg.android.habitica.ui.fragments.inventory.customization.AvatarEquipmentFragment"
+        android:label="@string/sidebar_avatar" >
+        <argument
+            android:name="type"
+            app:argType="string" />
+        <argument
+            android:name="category"
+            app:argType="string" />
+    </fragment>
+    <activity
+        android:id="@+id/prefsActivity"
+        android:name="com.habitrpg.android.habitica.ui.activities.PrefsActivity"
+        android:label="@string/app_settings"
+        tools:layout="@layout/activity_prefs">
+        <deepLink app:uri="habitica.com/settings" />
+    </activity>
+    <fragment
+        android:id="@+id/inboxMessageListFragment"
+        android:name="com.habitrpg.android.habitica.ui.fragments.social.InboxMessageListFragment"
+        android:label="@string/inbox" >
+        <argument
+            android:name="userID"
+            app:argType="string" />
+        <argument
+            android:name="username"
+            app:argType="string"
+            app:nullable="true" />
+    </fragment>
+    <activity
+        android:id="@+id/notificationsActivity"
+        android:name="com.habitrpg.android.habitica.ui.activities.NotificationsActivity"
+        android:label="@string/notifications">
+        <deepLink app:uri="habitica.com/user/notifications" />
+    </activity>
+    <fragment
+        android:id="@+id/petDetailRecyclerFragment"
+        android:name="com.habitrpg.android.habitica.ui.fragments.inventory.stable.PetDetailRecyclerFragment">
+        <argument
+            android:name="type"
+            app:argType="string" />
+        <argument
+            android:name="group"
+            app:argType="string" />
+        <argument
+            android:name="color"
+            app:argType="string"
+            app:nullable="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/mountDetailRecyclerFragment"
+        android:name="com.habitrpg.android.habitica.ui.fragments.inventory.stable.MountDetailRecyclerFragment">
+        <argument
+            android:name="type"
+            app:argType="string" />
+        <argument
+            android:name="group"
+            app:argType="string" />
+        <argument
+            android:name="color"
+            app:argType="string"
+            app:nullable="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/challengeDetailFragment"
+        android:name="com.habitrpg.android.habitica.ui.fragments.social.challenges.ChallengeDetailFragment"
+        android:label="@string/challenge">
+        <deepLink app:uri="habitica.com/challenges/{challengeID}" />
+        <argument
+            android:name="challengeID"
+            app:argType="string" />
+    </fragment>
+    <activity
+        android:id="@+id/fullProfileActivity"
+        android:name="com.habitrpg.android.habitica.ui.activities.FullProfileActivity"
+        android:label="FullProfileActivity">
+        <argument
+            android:name="userID"
+            app:argType="string" />
+    </activity>
+    <activity
+        android:id="@+id/guidelinesActivity"
+        android:name="com.habitrpg.android.habitica.ui.activities.GuidelinesActivity" />
+    <activity
+        android:id="@+id/groupFormActivity"
+        android:name="com.habitrpg.android.habitica.ui.activities.GroupFormActivity"
+        android:label="GroupFormActivity" />
+    <activity
+        android:id="@+id/classSelectionActivity"
+        android:name="com.habitrpg.android.habitica.ui.activities.ClassSelectionActivity"
+        android:label="ClassSelectionActivity" >
+        <argument
+            android:name="isInitialSelection"
+            app:argType="boolean"
+            android:defaultValue="false" />
+        <argument
+            android:name="className"
+            app:argType="string"
+            android:defaultValue="warrior" />
+    </activity>
+    <activity
+        android:id="@+id/reportMessageActivity"
+        android:name="com.habitrpg.android.habitica.ui.activities.ReportMessageActivity"
+        android:label="ReportMessageActivity" >
+        <argument
+            android:name="text"
+            app:argType="string" />
+        <argument
+            android:name="profileName"
+            app:argType="string" />
+        <argument
+            android:name="messageID"
+            app:argType="string" />
+    </activity>
+    <action
+        android:id="@+id/action_global_reportMessageActivity"
+        app:destination="@id/reportMessageActivity" />
+    <action
+        android:id="@+id/action_global_classSelectionActivity"
+        app:destination="@id/classSelectionActivity" />
+    <action
+        android:id="@+id/openProfileActivity"
+        app:destination="@id/fullProfileActivity" />
+    <fragment
+        android:id="@+id/achievementsFragment"
+        android:name="com.habitrpg.android.habitica.ui.fragments.AchievementsFragment"
+        android:label="@string/sidebar_achievements" >
+        <deepLink app:uri="habitica.com/user/achievements" />
+        <argument
+            android:name="userID"
+            app:argType="string"
+            app:nullable="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/marketFragment"
+        android:name="com.habitrpg.android.habitica.ui.fragments.inventory.shops.MarketFragment"
+        android:label="@string/market">
+        <deepLink app:uri="habitica.com/inventory/market" />
+    </fragment>
+    <fragment
+        android:id="@+id/questShopFragment"
+        android:name="com.habitrpg.android.habitica.ui.fragments.inventory.shops.QuestShopFragment"
+        android:label="@string/questShop">
+        <deepLink app:uri="habitica.com/inventory/quests" />
+    </fragment>
+    <fragment
+        android:id="@+id/seasonalShopFragment"
+        android:name="com.habitrpg.android.habitica.ui.fragments.inventory.shops.SeasonalShopFragment"
+        android:label="@string/seasonalShop">
+        <deepLink app:uri="habitica.com/inventory/seasonal" />
+    </fragment>
+    <fragment
+        android:id="@+id/timeTravelersShopFragment"
+        android:name="com.habitrpg.android.habitica.ui.fragments.inventory.shops.TimeTravelersShopFragment"
+        android:label="@string/timeTravelers">
+        <deepLink app:uri="habitica.com/inventory/time" />
+    </fragment>
+    <fragment
+        android:id="@+id/supportMainFragment"
+        android:name="com.habitrpg.android.habitica.ui.fragments.support.SupportMainFragment"
+        android:label="@string/support" >
+        <action
+            android:id="@+id/showFAQFragment"
+            app:destination="@id/FAQOverviewFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/bugFixFragment"
+        android:name="com.habitrpg.android.habitica.ui.fragments.support.BugFixFragment"
+        android:label="@string/bugs_fixes" />
+    <activity
+        android:id="@+id/adventureGuideActivity"
+        android:name="com.habitrpg.android.habitica.ui.activities.AdventureGuideActivity"
+        android:label="">
+        <deepLink app:uri="habitica.com/user/onboarding" />
+    </activity>
+    <fragment
+        android:id="@+id/promoInfoFragment"
+        android:name="com.habitrpg.android.habitica.ui.fragments.PromoInfoFragment"
+        android:label="" />
+    <fragment
+        android:id="@+id/promoWebFragment"
+        android:name="com.habitrpg.android.habitica.ui.fragments.PromoWebFragment"
+        android:label="">
+        <argument
+            android:name="url"
+            app:argType="string" />
+    </fragment>
+    <fragment
+        android:id="@+id/teamBoardFragment"
+        android:name="com.habitrpg.android.habitica.ui.fragments.tasks.TeamBoardFragment"
+        android:label="TeamBoardFragment" >
+        <argument
+            android:name="teamID"
+            app:argType="string" />
+    </fragment>
+</navigation>

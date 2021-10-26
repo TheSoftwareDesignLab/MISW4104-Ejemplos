@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="5dp"
+    android:clickable="true"
+    android:orientation="horizontal"
+    android:baselineAligned="false"
+    android:paddingEnd="16dp">
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="12dp"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:layout_gravity="center">
+        <ImageView
+            android:id="@+id/gem_icon"
+            android:layout_width="24dp"
+            android:layout_height="24dp" />
+        <TextView
+            android:id="@+id/gemPrizeTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:ellipsize="middle"
+            android:singleLine="true"
+            tools:text="0"
+            android:textColor="@color/gem_icon_color"
+            android:textSize="17sp"
+            android:textStyle="bold"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:layout_marginBottom="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_weight="6"
+        android:orientation="vertical">
+
+
+        <TextView
+            android:id="@+id/challenge_name"
+            style="@style/ChallengeName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/text_primary"
+            android:maxLines="3"
+            tools:text="Name" />
+
+        <TextView
+            android:id="@+id/challenge_shorttext"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/text_ternary"
+            android:textSize="12sp"
+            tools:text="Description"
+            android:layout_marginTop="@dimen/spacing_small"
+            android:layout_marginBottom="@dimen/spacing_small"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <ImageView
+                android:layout_width="18dp"
+                android:layout_height="20dp"
+                android:src="@drawable/dialogue_participants"
+                app:tint="@color/text_ternary"/>
+
+            <TextView
+                android:id="@+id/participantCount"
+                style="@style/ChallengeTaskDetails"
+                android:layout_width="wrap_content"
+                android:layout_height="20dp"
+                android:textColor="@color/text_ternary"
+                android:layout_marginStart="@dimen/spacing_small"
+                android:gravity="center_vertical"
+                tools:text="12334" />
+            <TextView
+                android:id="@+id/official_challenge_view"
+                android:layout_marginStart="@dimen/spacing_small"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                style="@style/Pill.Purple"
+                android:text="@string/official"/>
+            <TextView
+                android:id="@+id/is_joined_label"
+                android:layout_marginStart="@dimen/spacing_small"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                style="@style/Pill.Selected.Green"
+                android:text="@string/joined"/>
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>

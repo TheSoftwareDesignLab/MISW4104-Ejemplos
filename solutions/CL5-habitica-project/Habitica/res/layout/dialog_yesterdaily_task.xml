@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:minHeight="60dp"
+    android:elevation="2dp"
+    android:layout_margin="4dp"
+    android:background="@drawable/task_background"
+    android:orientation="vertical"
+    android:padding="0dp">
+    <LinearLayout
+        android:id="@+id/taskHolder"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="0dp"
+        android:gravity="center_vertical"
+        android:minHeight="60dp">
+        <FrameLayout
+            android:id="@+id/checkBoxHolder"
+            android:layout_width="@dimen/button_width"
+            android:layout_height="match_parent"
+            tools:background="@color/red_10">
+            <View
+                android:id="@+id/checkbox_background"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:gravity="center"
+                android:layout_gravity="center" />
+            <ImageView
+                android:id="@+id/checkmark"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_gravity="center"
+                android:scaleType="center"
+                android:src="@drawable/checkmark" />
+        </FrameLayout>
+        <TextView
+            android:id="@+id/text_view"
+            style="@style/Subheader3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="12dp"
+            tools:text="Title"/>
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/checklistView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"/>
+</LinearLayout>

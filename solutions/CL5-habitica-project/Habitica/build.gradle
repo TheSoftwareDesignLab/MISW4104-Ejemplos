@@ -1,0 +1,405 @@
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-kapt'
+apply plugin: 'com.google.gms.google-services'
+apply plugin: 'com.google.firebase.crashlytics'
+apply plugin: 'realm-android'
+apply plugin: 'androidx.navigation.safeargs'
+apply plugin: 'com.google.firebase.firebase-perf'
+apply plugin: 'jacoco'
+
+buildscript {
+    repositories {
+        mavenLocal()
+        google()
+        mavenCentral()
+        jcenter()
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:7.0.2'
+        classpath 'net.sourceforge.pmd:pmd-java:5.5.3'
+    }
+}
+
+repositories {
+    mavenLocal()
+    mavenCentral()
+    google()
+    maven { url "https://oss.sonatype.org/content/repositories/snapshots" }
+
+    maven { url "https://jitpack.io" }
+}
+
+configurations {
+    ktlint
+}
+
+dependencies {
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    //Networking
+    implementation 'com.squareup.okhttp3:okhttp:4.9.1'
+    implementation 'com.squareup.okhttp3:logging-interceptor:4.9.1'
+    //REST API handling
+    implementation('com.squareup.retrofit2:retrofit:2.9.0') {
+        exclude module: 'okhttp'
+    }
+    implementation 'com.squareup.retrofit2:converter-gson:2.9.0'
+    implementation 'com.squareup.retrofit2:adapter-rxjava3:2.9.0'
+
+    //Dependency Injection
+    implementation 'com.google.dagger:dagger:2.39.1'
+    kapt 'com.google.dagger:dagger-compiler:2.39.1'
+    compileOnly 'javax.annotation:javax.annotation-api:1.3.2'
+    compileOnly 'com.github.pengrad:jdk9-deps:1.0'
+    //App Compatibility and Material Design
+    implementation 'androidx.appcompat:appcompat:1.3.1'
+    implementation 'com.google.android.material:material:1.4.0'
+    implementation 'androidx.recyclerview:recyclerview:1.2.1'
+    implementation "androidx.preference:preference-ktx:1.1.1"
+
+
+    // Markdown
+    implementation "io.noties.markwon:core:4.6.2"
+    implementation "io.noties.markwon:ext-strikethrough:4.6.2"
+    implementation "io.noties.markwon:image:4.6.2"
+    implementation "io.noties.markwon:recycler:4.6.2"
+    //Eventbus
+    implementation 'org.greenrobot:eventbus:3.2.0'
+    // IAP Handling / Verification
+    implementation 'org.solovyev.android:checkout:1.2.3'
+    //Facebook
+    implementation('com.facebook.android:facebook-android-sdk:11.3.0') {
+        transitive = true
+    }
+    implementation 'fr.avianey.com.viewpagerindicator:library:2.4.1@aar'
+    //RxJava
+    implementation 'io.reactivex.rxjava3:rxandroid:3.0.0'
+    implementation 'io.reactivex.rxjava3:rxjava:3.1.1'
+    implementation 'io.reactivex.rxjava3:rxkotlin:3.0.1'
+    implementation 'io.reactivex.rxjava2:rxjava:2.2.21'
+    implementation "com.github.akarnokd:rxjava3-bridge:3.0.0"
+
+    //Analytics
+    implementation 'com.amplitude:android-sdk:2.30.0'
+    // Image Management Library
+    implementation("io.coil-kt:coil:1.4.0")
+    implementation("io.coil-kt:coil-gif:1.4.0")
+
+    //Tests
+    testImplementation 'io.kotest:kotest-runner-junit5:4.6.2'
+    testImplementation 'androidx.test:core:1.4.0'
+    testImplementation "io.mockk:mockk:1.12.0"
+    testImplementation "io.mockk:mockk-android:1.12.0"
+    testImplementation 'io.kotest:kotest-assertions-core:4.6.2'
+    testImplementation 'io.kotest:kotest-framework-datatest:4.6.2'
+    androidTestImplementation 'com.kaspersky.android-components:kaspresso:1.2.1'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
+    androidTestImplementation 'androidx.test:runner:1.4.0'
+    androidTestImplementation 'androidx.test:rules:1.4.0'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.3'
+    androidTestImplementation "io.mockk:mockk-android:1.12.0"
+    debugImplementation 'androidx.test:monitor:1.4.0'
+    debugImplementation "androidx.fragment:fragment-testing:1.3.6"
+
+
+    //Leak Detection
+    debugImplementation 'com.squareup.leakcanary:leakcanary-android:2.7'
+    //Push Notifications
+    implementation platform('com.google.firebase:firebase-bom:28.3.0')
+    implementation 'com.google.firebase:firebase-crashlytics'
+    implementation 'com.google.firebase:firebase-core'
+    implementation 'com.google.firebase:firebase-messaging'
+    implementation 'com.google.firebase:firebase-config'
+    implementation 'com.google.firebase:firebase-perf'
+    implementation 'com.google.android.gms:play-services-auth:19.2.0'
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.5.30"
+    implementation 'com.nex3z:flow-layout:1.2.2'
+
+    implementation 'androidx.core:core-ktx:1.6.0'
+    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:2.3.1"
+    implementation "androidx.lifecycle:lifecycle-livedata-ktx:2.3.1"
+    implementation "androidx.lifecycle:lifecycle-common-java8:2.3.1"
+    implementation 'androidx.navigation:navigation-fragment-ktx:2.3.5'
+    implementation 'androidx.navigation:navigation-ui-ktx:2.3.5'
+    implementation "androidx.fragment:fragment-ktx:1.3.6"
+    implementation "androidx.paging:paging-runtime-ktx:3.0.1"
+    implementation 'com.plattysoft.leonids:LeonidsLib:1.3.2'
+    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-core:1.5.2'
+    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.5.2'
+
+    implementation 'com.willowtreeapps:signinwithapplebutton:0.3'
+
+    implementation project(':shared')
+
+    ktlint("com.pinterest:ktlint:0.42.1") {
+        attributes {
+            attribute(Bundling.BUNDLING_ATTRIBUTE, getObjects().named(Bundling, Bundling.EXTERNAL))
+        }
+    }
+}
+
+android {
+    compileSdkVersion 30
+    buildToolsVersion '30.0.2'
+    testOptions {
+        unitTests {
+            includeAndroidResources = true
+        }
+    }
+
+    defaultConfig {
+        minSdkVersion 21
+        applicationId "com.habitrpg.android.habitica"
+        vectorDrawables.useSupportLibrary = true
+        buildConfigField "String", "STORE", "\"google\""
+        buildConfigField "String", "TESTING_LEVEL", "\"production\""
+        resConfigs "en", "bg", "de", "en-rGB", "es", "fr", "hr-rHR", "in", "it", "iw", "ja", "ko", "lt", "nl", "pl", "pt-rBR", "pt-rPT", "ru", "tr", "zh", "zh-rTW"
+
+        versionCode 3070
+        versionName "3.4.1"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildFeatures {
+        viewBinding true
+    }
+
+    lintOptions {
+        abortOnError false
+    }
+
+    signingConfigs {
+        release
+    }
+    flavorDimensions "buildType"
+
+    buildTypes {
+        debug {
+            applicationIdSuffix ".debug"
+            debuggable true
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            // Disable fabric build ID generation for debug builds
+            ext.enableCrashlytics = false
+            ext.alwaysUpdateBuildId = false
+            testCoverageEnabled = true
+            resValue "string", "content_provider", "com.habitrpg.android.habitica.debug.fileprovider"
+            resValue "string", "app_name", "Habitica Debug"
+        }
+        release {
+            signingConfig signingConfigs.release
+            debuggable false
+            minifyEnabled true
+            shrinkResources true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            resValue "string", "content_provider", "com.habitrpg.android.habitica.fileprovider"
+            resValue "string", "app_name", "Habitica"
+        }
+    }
+
+    productFlavors {
+        dev {
+            dimension "buildType"
+        }
+
+        staff {
+            dimension "buildType"
+            buildConfigField "String", "TESTING_LEVEL", "\"staff\""
+            resValue "string", "app_name", "Habitica Staff"
+        }
+
+        alpha {
+            dimension "buildType"
+            buildConfigField "String", "TESTING_LEVEL", "\"alpha\""
+            resValue "string", "app_name", "Habitica Alpha"
+        }
+
+        beta {
+            buildConfigField "String", "TESTING_LEVEL", "\"beta\""
+            dimension "buildType"
+        }
+
+        prod {
+            buildConfigField "String", "TESTING_LEVEL", "\"production\""
+            dimension "buildType"
+        }
+    }
+
+    sourceSets {
+        main {
+            manifest.srcFile 'AndroidManifest.xml'
+            java.srcDirs = ['src/main/java']
+            resources.srcDirs = ['src/main/java']
+            aidl.srcDirs = ['src/main/java']
+            renderscript.srcDirs = ['src/main/java']
+            res.srcDirs = ['res']
+            assets.srcDirs = ['assets']
+        }
+        /*robolectric {
+            manifest.srcFile 'AndroidManifestTesting.xml'
+            java.srcDir file('src/test/java/')
+            res.srcDirs = ['res']
+        }*/
+        //instrumentTest.setRoot('tests')
+        release { java.srcDirs = ['src/release/java'] }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    kotlinOptions {
+        jvmTarget = JavaVersion.VERSION_1_8.toString()
+    }
+
+    lintOptions {
+        disable 'MissingTranslation','InvalidPackage'
+        enable 'LogConditional','IconExpectedSize','MissingRegistered','TypographyQuotes'
+    }
+
+    bundle {
+        language {
+            // Specifies that the app bundle should not support
+            // configuration APKs for language resources. These
+            // resources are instead packaged with each base and
+            // dynamic feature APK.
+            enableSplit = false
+        }
+    }
+}
+
+android.testOptions {
+    unitTests.all {
+        useJUnitPlatform()
+        unitTests.returnDefaultValues = true
+    }
+}
+
+Properties props = new Properties()
+def propFile = new File('signingrelease.properties')
+if (propFile.canRead()) {
+    props.load(new FileInputStream(propFile))
+
+    if (props != null && props.containsKey('STORE_FILE') && props.containsKey('STORE_PASSWORD') &&
+            props.containsKey('KEY_ALIAS') && props.containsKey('KEY_PASSWORD')) {
+        android.signingConfigs.release.storeFile = file(props['STORE_FILE'])
+        android.signingConfigs.release.storePassword = props['STORE_PASSWORD']
+        android.signingConfigs.release.keyAlias = props['KEY_ALIAS']
+        android.signingConfigs.release.keyPassword = props['KEY_PASSWORD']
+    } else {
+        println 'signing.properties found but some entries are missing'
+        android.buildTypes.release.signingConfig = null
+    }
+} else {
+    println 'signing.properties not found'
+    android.buildTypes.release.signingConfig = null
+}
+
+// Add Habitica Properties to buildConfigField
+final File HRPG_PROPS_FILE = new File('habitica.properties')
+if (HRPG_PROPS_FILE.canRead()) {
+    Properties HRPG_PROPS = new Properties()
+    HRPG_PROPS.load(new FileInputStream(HRPG_PROPS_FILE))
+
+    if (HRPG_PROPS != null) {
+        android.buildTypes.all { buildType ->
+            HRPG_PROPS.any { property ->
+                buildType.buildConfigField "String", property.key, "\"${property.value}\""
+            }
+        }
+    } else {
+        throw new InvalidUserDataException('habitica.properties found but some entries are missing')
+    }
+} else {
+    throw new MissingResourceException('habitica.properties not found')
+}
+
+// Add Habitica Resources to resources
+final File HRPG_RES_FILE = new File('habitica.resources')
+if (HRPG_RES_FILE.canRead()) {
+    Properties HRPG_RES = new Properties()
+    HRPG_RES.load(new FileInputStream(HRPG_RES_FILE))
+
+    if (HRPG_RES != null) {
+        android.buildTypes.all { buildType ->
+            HRPG_RES.any { property ->
+                buildType.resValue "string", property.key, "\"${property.value}\""
+            }
+        }
+    } else {
+        throw new InvalidUserDataException('habitica.resources found but some entries are missing')
+    }
+} else {
+    throw new MissingResourceException('habitica.resources not found')
+}
+
+tasks.whenTaskAdded { task ->
+    if (task.name == "lint") {
+        task.enabled = false
+    }
+}
+
+gradle.projectsEvaluated {
+    tasks.withType(JavaCompile) {
+        options.compilerArgs << "-Xmaxerrs" << "500"
+    }
+}
+
+apply plugin: 'com.google.gms.google-services'
+
+jacoco {
+    toolVersion = "0.8.7"
+}
+
+// packages to exclude for example generated classes, R class and models package, add all packages that you wish to exclude from test coverage
+def fileFilter = [
+        '**/*$ViewInjector*.*','**/*$ViewBinder*.*', '**/HabiticaIcons*.*', '**/DeviceName.*', '**/databinding/*Binding.*',
+        '**/R.class', '**/R.styleable', '**/R$*.class', '**/BuildConfig.*', '**/EmojiMap.*',
+        '**/Manifest*.*', 'android/**/*.*', '**/*RealmProxy*.*', '**/io/realm/*']
+def debugTree = fileTree(dir: "${buildDir}/intermediates/asm_instrumented_project_classes/prodDebug", excludes: fileFilter)
+def mainSrc = "${project.projectDir}/src/main/java"
+
+// override jacocTestReport task
+task jacocoTestReport(type: JacocoReport, dependsOn: 'testProdDebugUnitTest') {
+    group = "Reporting"
+    reports {
+        html.enabled = true
+        xml.enabled = true
+        //html.destination = "${buildDir}/reports/jacoco"
+    }
+
+    sourceDirectories.from(files([mainSrc]))
+    classDirectories.from(files([debugTree]))
+    executionData.from(fileTree(dir: project.buildDir, includes: [
+            "${buildDir}/jacoco/testProdDebugUnitTest.exec",
+            "${buildDir}/outputs/code-coverage/connected/*coverage.ec"
+    ]))
+
+    afterEvaluate {
+        classDirectories.from(files(classDirectories.files.collect {
+            fileTree(dir: it, exclude: fileFilter)
+        }))
+    }
+}
+
+task ktlint(type: JavaExec, group: "verification") {
+    description = "Check Kotlin code style."
+    classpath = configurations.ktlint
+    main = "com.pinterest.ktlint.Main"
+    args "--disabled_rules=no-wildcard-imports", "--reporter=plain?group_by_file", "src/**/*.kt"
+    // to generate report in checkstyle format prepend following args:
+    // "--reporter=plain", "--reporter=checkstyle,output=${buildDir}/ktlint.xml"
+    // to add a baseline to check against prepend following args:
+    // "--baseline=ktlint-baseline.xml"
+    // see https://github.com/pinterest/ktlint#usage for more
+}
+check.dependsOn ktlint
+
+task ktlintFormat(type: JavaExec, group: "formatting") {
+    description = "Fix Kotlin code style deviations."
+    classpath = configurations.ktlint
+    main = "com.pinterest.ktlint.Main"
+    args "--disabled_rules=no-wildcard-imports", "-F", "src/**/*.kt"
+}

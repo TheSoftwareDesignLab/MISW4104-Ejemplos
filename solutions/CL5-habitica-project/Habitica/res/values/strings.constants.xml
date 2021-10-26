@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--  Prefs -->
+    <string name="SP_userID" translatable="false">UserID</string>
+    <string name="SP_APIToken" translatable="false">APIToken</string>
+    <string name="base_url" translatable="false">https://habitica.com</string>
+
+    <!-- Local notification actions -->
+    <string name="accept_party_invite" translatable="false">ACCEPT_PARTY_INVITE</string>
+    <string name="reject_party_invite" translatable="false">REJECT_PARTY_INVITE</string>
+    <string name="accept_guild_invite" translatable="false">ACCEPT_GUILD_INVITE</string>
+    <string name="reject_guild_invite" translatable="false">REJECT_GUILD_INVITE</string>
+    <string name="accept_quest_invite" translatable="false">ACCEPT_QUEST_INVITE</string>
+    <string name="reject_quest_invite" translatable="false">REJECT_QUEST_INVITE</string>
+    <string name="group_message_reply" translatable="false">GROUP_MESSAGE_REPLY</string>
+    <string name="inbox_message_reply" translatable="false">INBOX_MESSAGE_REPLY</string>
+    <string name="complete_task_action" translatable="false">COMPLETE_TASK</string>
+
+    <string name="habitica_user_count" translatable="false">2,000,000</string>
+    <string name="brand_name" translatable="false">Habitica</string>
+
+    <string name="market_owner" translatable="false">Alex</string>
+    <string name="questShop_owner" translatable="false">Ian</string>
+    <string name="seasonalShop_owner" translatable="false">Leslie</string>
+    <string name="timetravelers_owner" translatable="false">Time Travelers</string>
+    <string name="tavern_owner" translatable="false">Daniel</string>
+    <string name="stable_owner" translatable="false">Matt</string>
+    <string name="empty" translatable="false"> </string>
+</resources>

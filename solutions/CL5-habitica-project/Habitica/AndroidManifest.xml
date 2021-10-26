@@ -1,0 +1,292 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.habitrpg.android.habitica"
+    android:screenOrientation="portrait"
+    android:installLocation="auto" >
+
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="com.android.vending.BILLING" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
+
+    <uses-permission android:name="android.permission.RECORD_AUDIO" tools:node="remove" />
+    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" tools:node="remove" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" tools:node="remove" />
+
+
+    <application
+        android:name=".HabiticaApplication"
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:label="@string/app_name"
+        android:theme="@style/MainAppTheme"
+        tools:replace="android:name"
+        android:fullBackupContent="@xml/backup_descriptor"
+        android:configChanges="orientation"
+        android:networkSecurityConfig="@xml/network_security_config">
+        <meta-data
+            android:name="firebase_performance_logcat_enabled"
+            android:value="true" />
+        <activity
+            android:name=".ui.activities.MainActivity"
+            android:label="@string/app_name"
+            android:theme="@style/LaunchAppTheme"
+            android:windowSoftInputMode="stateHidden|adjustResize"
+            android:configChanges="orientation|screenSize">
+            <nav-graph android:value="@navigation/navigation" />
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+            <intent-filter android:label="@string/app_name">
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <data android:scheme="https"
+                    android:host="habitica.com"
+                    android:pathPattern="/"/>
+            </intent-filter>
+
+        </activity>
+        <activity
+            android:name=".ui.activities.PrefsActivity"
+            android:parentActivityName=".ui.activities.MainActivity"
+            android:label="@string/PS_settings_title"
+            tools:ignore="UnusedAttribute">
+            <intent-filter android:label="@string/app_name">
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <data android:scheme="https"
+                    android:host="habitica.com"
+                    android:pathPattern="/settings/.*"/>
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".ui.activities.NotificationsActivity"
+            android:parentActivityName=".ui.activities.MainActivity"
+            android:label="@string/notifications"
+            android:screenOrientation="unspecified"
+            tools:ignore="UnusedAttribute">
+        </activity>
+        <activity
+            android:name=".ui.activities.FixCharacterValuesActivity"
+            android:parentActivityName=".ui.activities.PrefsActivity"
+            android:label="@string/PS_settings_title"
+            tools:ignore="UnusedAttribute">
+        </activity>
+        <activity
+            android:name=".ui.activities.LoginActivity"
+            android:label="@string/LoginActivityName"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustResize">
+        </activity>
+        <activity
+            android:name=".ui.activities.AdventureGuideActivity"
+            android:label=""
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustResize">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.habitrpg.android.habitica.ui.activities.MainActivity" />
+        </activity>
+        <activity
+            android:name=".ui.activities.IntroActivity"
+            android:windowSoftInputMode="adjustResize">
+        </activity>
+        <activity
+            android:name=".ui.activities.SetupActivity"
+            android:windowSoftInputMode="stateHidden|adjustResize">
+        </activity>
+        <activity
+            android:name=".ui.activities.SkillTasksActivity"
+            android:label="@string/app_name">
+        </activity>
+        <activity
+            android:name=".ui.activities.SkillMemberActivity"
+            android:label="@string/app_name">
+        </activity>
+        <activity
+            android:name=".ui.activities.GiftSubscriptionActivity"
+            android:label="@string/gift_subscription">
+        </activity>
+        <activity
+            android:name=".ui.activities.GiftGemsActivity"
+            android:label="@string/gift_gems">
+        </activity>
+        <activity
+            android:name=".ui.activities.GuidelinesActivity"
+            android:label="@string/community_guidelines">
+        </activity>
+
+        <meta-data android:name="com.facebook.sdk.ApplicationId" android:value="@string/facebook_app_id"/>
+        <meta-data
+                android:name="com.facebook.sdk.AutoLogAppEventsEnabled"
+                android:value="false"/>
+        <activity
+            android:name=".ui.activities.TaskFormActivity"
+            android:parentActivityName=".ui.activities.MainActivity"
+            tools:ignore="UnusedAttribute"
+            android:configChanges="orientation|screenSize"
+            android:windowSoftInputMode="stateVisible|adjustResize">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".ui.activities.MainActivity" />
+        </activity>
+        <activity
+            android:name=".ui.activities.GroupFormActivity"
+            android:parentActivityName=".ui.activities.MainActivity"
+            tools:ignore="UnusedAttribute">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".ui.activities.MainActivity" />
+        </activity>
+        <activity
+            android:name=".ui.activities.ClassSelectionActivity"
+            android:parentActivityName=".ui.activities.MainActivity"
+            tools:ignore="UnusedAttribute"
+            android:label="@string/select_class">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".ui.activities.MainActivity" />
+        </activity>
+        <activity
+            android:name=".ui.activities.GroupInviteActivity"
+            tools:ignore="UnusedAttribute">
+        </activity>
+        <activity
+            android:name=".ui.activities.FullProfileActivity"
+            android:parentActivityName=".ui.activities.MainActivity"
+            android:theme="@style/MainAppTheme"
+            tools:ignore="UnusedAttribute">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".ui.activities.MainActivity" />
+            <intent-filter android:label="@string/app_name">
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <data android:scheme="https"
+                    android:host="habitica.com"
+                    android:pathPattern="/profile/.*"/>
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".ui.activities.ChallengeFormActivity"
+            android:parentActivityName=".ui.activities.MainActivity"
+            tools:ignore="UnusedAttribute">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".ui.activities.MainActivity" />
+        </activity>
+        <activity android:name="com.facebook.FacebookActivity"
+            android:configChanges="keyboard|keyboardHidden|screenLayout|screenSize|orientation"
+            android:label="@string/app_name" />
+        <activity android:name=".ui.activities.MaintenanceActivity"
+                  android:screenOrientation="unspecified"
+                  android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+        <activity android:name=".ui.activities.GemPurchaseActivity"
+                  android:screenOrientation="unspecified" />
+        <activity android:name=".ui.activities.VerifyUsernameActivity"
+            android:screenOrientation="unspecified"
+            android:windowSoftInputMode="stateHidden" />
+        <receiver android:name=".receivers.NotificationPublisher" />
+
+        <receiver android:name=".receivers.TaskReceiver" android:enabled="true" android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.NOTIFY" />
+            </intent-filter>
+        </receiver>
+
+        <receiver android:name=".receivers.LocalNotificationActionReceiver"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="ACCEPT_PARTY_INVITE"/>
+                <action android:name="REJECT_PARTY_INVITE"/>
+                <action android:name="ACCEPT_QUEST_INVITE"/>
+                <action android:name="REJECT_QUEST_INVITE"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:name=".receivers.TaskAlarmBootReceiver" android:permission="android.permission.RECEIVE_BOOT_COMPLETED">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+            </intent-filter>
+        </receiver>
+
+        <activity android:name=".ui.activities.AddTaskWidgetActivity">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_CONFIGURE"/>
+            </intent-filter>
+        </activity>
+        <activity android:name=".ui.activities.HabitButtonWidgetActivity">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_CONFIGURE"/>
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".ui.activities.ReportMessageActivity"
+            android:theme="@style/BottomSheetTheme"
+            android:windowSoftInputMode="stateHidden|adjustResize">
+        </activity>
+        <service
+            android:name=".helpers.notifications.HabiticaFirebaseMessagingService"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT"/>
+            </intent-filter>
+        </service>
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="@string/content_provider"
+            android:grantUriPermissions="true"
+            android:exported="false">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/filepaths" />
+        </provider>
+
+        <receiver android:name=".widget.AvatarStatsWidgetProvider"
+            android:label="@string/stats_widget_label">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+            </intent-filter>
+            <meta-data android:name="android.appwidget.provider"
+                       android:resource="@xml/avatar_widget_info" />
+        </receiver>
+        <receiver android:name=".widget.DailiesWidgetProvider"
+            android:label="@string/widget_dailies">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+            </intent-filter>
+            <meta-data android:name="android.appwidget.provider"
+                android:resource="@xml/daily_list_widget_info" />
+        </receiver>
+        <receiver android:name=".widget.TodoListWidgetProvider"
+            android:label="@string/widget_todo_list">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+            </intent-filter>
+            <meta-data android:name="android.appwidget.provider"
+                android:resource="@xml/todo_list_widget_info" />
+        </receiver>
+        <receiver android:name=".widget.HabitButtonWidgetProvider"
+            android:label="@string/widget_habit_button">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+            </intent-filter>
+            <meta-data android:name="android.appwidget.provider"
+                android:resource="@xml/habit_button_widget_info" />
+        </receiver>
+
+        <service
+            android:name=".widget.DailiesWidgetService"
+            android:permission="android.permission.BIND_REMOTEVIEWS" />
+        <service
+            android:name=".widget.TodosWidgetService"
+            android:permission="android.permission.BIND_REMOTEVIEWS" />
+        <service android:name=".widget.HabitButtonWidgetService"/>
+    </application>
+
+</manifest>

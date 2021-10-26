@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:gravity="center">
+    <com.google.android.material.button.MaterialButton
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="22dp"
+        android:layout_marginBottom="18dp"
+        android:layout_marginEnd="24dp"
+        android:layout_marginStart="24dp"
+        android:textAllCaps="false"
+        style="@style/HabiticaButton.Gray"
+        android:id="@+id/btn_add_task"
+        tools:text="Add habit">
+
+    </com.google.android.material.button.MaterialButton>
+</LinearLayout>

@@ -1,0 +1,150 @@
+<resources>
+    <attr name="colorPrimaryOffset" format="color" />
+    <attr name="colorPrimaryDistinct" format="color" />
+    <attr name="colorBadgeBackground" format="color" />
+    <attr name="colorContentBackground" format="color" />
+    <attr name="colorContentBackgroundOffset" format="color" />
+    <attr name="colorWindowBackground" format="color" />
+    <attr name="textColorPrimary" format="color" />
+    <attr name="textColorSecondary" format="color" />
+    <attr name="textColorPrimaryDark" format="color" />
+    <attr name="barColor" format="color" />
+    <attr name="toolbarContentColor" format="color" />
+    <attr name="colorPrimaryText" format="color" />
+    <attr name="taskFormTint" format="color" />
+    <attr name="textColorSecondaryDark" format="color" />
+    <attr name="statsColor" format="color" />
+    <attr name="statsTitle" format="string" />
+    <attr name="title" format="string" />
+    <attr name="description" format="string" />
+    <attr name="iconDrawable" format="integer" />
+    <attr name="identifier" format="string" />
+    <attr name="hasLightBackground" format="boolean" />
+    <attr name="barForegroundColor" format="color" />
+    <attr name="barPendingColor" format="color" />
+    <attr name="barBackgroundColor" format="color" />
+    <attr name="headerBackgroundColor" format="color" />
+    <attr name="headerOffsetColor" format="color" />
+    <attr name="headerTextColor" format="color" />
+    <declare-styleable name="AvatarView">
+        <attr name="showBackground" format="boolean" />
+        <attr name="showMount" format="boolean" />
+        <attr name="showPet" format="boolean" />
+        <attr name="showSleeping" format="boolean" />
+    </declare-styleable>
+
+    <declare-styleable name="GemPurchaseOptionsView">
+        <attr name="gemAmount" format="integer" />
+        <attr name="priceText" format="string" />
+        <attr name="gemDrawable" format="integer" />
+    </declare-styleable>
+
+    <declare-styleable name="MaxHeightLinearLayout">
+        <attr name="maxHeightMultiplier" format="float" />
+    </declare-styleable>
+    <declare-styleable name="SubscriptionOptionView">
+        <attr name="recurringText" format="string" />
+        <attr name="gemCapText" format="string" />
+        <attr name="isNonRecurring" format="boolean" />
+        <attr name="hourGlassCount" format="integer" />
+        <attr name="flagText" format="string" />
+    </declare-styleable>
+    <declare-styleable name="SpeechBubbleView">
+        <attr name="namePlate" format="string" />
+        <attr name="text" format="string" />
+        <attr name="npcDrawable" format="integer" />
+    </declare-styleable>
+    <declare-styleable name="AvatarCategoryView">
+        <attr name="iconDrawable" />
+        <attr name="categoryTitle" format="string" />
+    </declare-styleable>
+    <declare-styleable name="ValueBar">
+        <attr name="barForegroundColor" />
+        <attr name="barPendingColor" />
+        <attr name="barBackgroundColor" />
+        <attr name="valueTextColor" format="color" />
+        <attr name="descriptionTextColor" format="color" />
+        <attr name="barIconDrawable" format="integer" />
+        <attr name="barHeight" format="dimension" />
+        <attr name="lightBackground" format="boolean" />
+        <attr name="description" />
+        <attr name="labelSpacing" format="dimension" />
+    </declare-styleable>
+    <declare-styleable name="HabiticaProgressBar">
+        <attr name="barForegroundColor" />
+        <attr name="barPendingColor" />
+        <attr name="barBackgroundColor" />
+    </declare-styleable>
+    <declare-styleable name="CurrencyView">
+        <attr name="currency" format="string" />
+        <attr name="hasLightBackground" />
+    </declare-styleable>
+    <declare-styleable name="CurrencyViews">
+        <attr name="hasLightBackground" />
+    </declare-styleable>
+    <declare-styleable name="StatsView">
+        <attr name="titleBackgroundColor" format="color" />
+        <attr name="statsColor" />
+        <attr name="statsTitle" />
+    </declare-styleable>
+    <declare-styleable name="EquipmentItemRow">
+        <attr name="equipmentTitle" format="string" />
+    </declare-styleable>
+    <declare-styleable name="StatsSliderView">
+        <attr name="statsColor" />
+        <attr name="statsTextColor" format="color" />
+        <attr name="statsTitle" />
+    </declare-styleable>
+    <declare-styleable name="CollapsibleSectionView">
+        <attr name="title" />
+        <attr name="color" format="color" />
+        <attr name="identifier" />
+        <attr name="hasAdditionalInfo" format="boolean" />
+        <attr name="titleSize" format="dimension" />
+    </declare-styleable>
+    <declare-styleable name="BottomBar">
+        <attr name="bb_tabXmlResource" format="reference" />
+        <attr name="bb_tabletMode" format="boolean" />
+        <attr name="bb_behavior">
+            <flag name="shifting" value="1" />
+            <flag name="shy" value="2" />
+            <flag name="underNavbar" value="4" />
+            <flag name="iconsOnly" value="8" />
+        </attr>
+        <attr name="bb_longPressHintsEnabled" format="boolean" />
+        <attr name="bb_inActiveTabAlpha" format="float" />
+        <attr name="bb_activeTabAlpha" format="float" />
+        <attr name="bb_inActiveTabColor" format="color" />
+        <attr name="bb_activeTabColor" format="color" />
+        <attr name="bb_badgeBackgroundColor" format="color" />
+        <attr name="bb_badgesHideWhenActive" format="boolean" />
+        <attr name="bb_titleTextAppearance" format="reference" />
+        <attr name="bb_titleTypeFace" format="string" />
+        <attr name="bb_showShadow" format="boolean" />
+    </declare-styleable>
+    <declare-styleable name="BottomNavigationItem">
+        <attr name="title" />
+        <attr name="iconDrawable" />
+        <attr name="selectedIconDrawable" format="integer" />
+    </declare-styleable>
+    <declare-styleable name="EquipmentOverviewItem">
+        <attr name="title" />
+    </declare-styleable>
+    <declare-styleable name="SupportCollapsibleSection">
+        <attr name="title" />
+        <attr name="titleColor" format="color" />
+        <attr name="subtitle" format="string" />
+        <attr name="description" />
+        <attr name="iconDrawable" />
+    </declare-styleable>
+    <declare-styleable name="StepperValueFormView">
+        <attr name="defaultValue" />
+        <attr name="iconDrawable" />
+        <attr name="maxValue" format="integer" />
+        <attr name="minValue" format="integer" />
+    </declare-styleable>
+    <declare-styleable name="DayNightTextView">
+        <attr name="dayTextColor" format="color" />
+        <attr name="nightTextColor" format="color" />
+    </declare-styleable>
+</resources>

@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:foreground="?selectableItemBackground">
+
+    <LinearLayout
+        android:id="@+id/main_task_wrapper"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/task_spacing_horizontal"
+        android:layout_marginVertical="@dimen/task_spacing_vertical"
+        android:background="@drawable/task_background"
+        android:clipChildren="true"
+        android:minHeight="@dimen/task_min_height"
+        android:orientation="vertical">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:baselineAligned="false"
+                android:minHeight="@dimen/task_min_height">
+
+                <FrameLayout
+                    android:id="@+id/checkBoxHolder"
+                    android:layout_width="@dimen/button_width"
+                    android:layout_height="match_parent"
+                    tools:background="@color/red_10"
+                    android:focusable="true"
+                    android:contentDescription="@string/daily_item_checkbox">
+                    <View
+                        android:id="@+id/checkBoxBackground"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:gravity="center"
+                        android:background="@drawable/daily_checked"
+                        android:layout_gravity="center" />
+                    <ImageView
+                        android:id="@+id/checkmark"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:layout_gravity="center"
+                        android:scaleType="center"
+                        android:src="@drawable/checkmark" />
+                    <ImageView
+                        android:id="@+id/lock_view"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:layout_gravity="center"
+                        android:scaleType="center"
+                        android:src="@drawable/task_lock" />
+                </FrameLayout>
+                <include layout="@layout/task_main_content" />
+                <ProgressBar
+                    android:id="@+id/syncing_view"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginStart="@dimen/spacing_small"
+                    android:layout_marginEnd="@dimen/spacing_small"
+                    style="@style/Widget.AppCompat.ProgressBar"/>
+                <ImageButton
+                    android:id="@+id/error_icon"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:background="@color/transparent"
+                    android:src="@drawable/ic_warning_black"
+                    android:layout_marginStart="@dimen/spacing_small"
+                    android:layout_marginEnd="@dimen/spacing_small"/>
+                <include layout="@layout/checklist_indicator" />
+            </LinearLayout>
+            <LinearLayout
+                android:id="@+id/checklistView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical" />
+    </LinearLayout>
+</FrameLayout>

@@ -1,0 +1,413 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.habitrpg.android.habitica.ui.activities.FixCharacterValuesActivity">
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:minHeight="?attr/actionBarSize"
+            android:theme="@style/Toolbar.Modern"
+            app:layout_scrollFlags="scroll|enterAlways"
+            app:popupTheme="@style/PopupTheme"/>
+
+    </com.google.android.material.appbar.AppBarLayout>
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/scroll_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <FrameLayout
+                android:id="@+id/blocked_disclaimer_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                style="@style/FlatCardView"
+                android:background="@drawable/layout_rounded_bg_red"
+                android:visibility="gone">
+                <LinearLayout
+                    style="@style/CardContent"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:orientation="vertical">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        style="@style/CardTitle"
+                        android:text="@string/user_is_blocked"
+                        android:textColor="@color/white"
+                        android:layout_gravity="center" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        style="@style/CardText"
+                        android:text="@string/user_is_blocked_explanation"
+                        android:textColor="@color/white"
+                        android:gravity="center"
+                        android:layout_gravity="center" />
+                </LinearLayout>
+            </FrameLayout>
+
+            <FrameLayout
+                style="@style/FlatCardView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <LinearLayout
+                    style="@style/CardContent"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <include
+                        android:id="@+id/avatar_with_bars"
+                        layout="@layout/avatar_with_bars"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+
+                    <TextView
+                        android:id="@+id/blurb_text_view"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textIsSelectable="true"
+                        tools:text="Blurb" />
+
+                    <ImageView
+                        android:id="@+id/profile_image"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_margin="5dp"
+                        android:minHeight="200dp"
+                        android:visibility="gone"/>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_marginTop="@dimen/spacing_medium"
+                        android:layout_marginBottom="@dimen/spacing_medium">
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:layout_height="wrap_content"
+                            android:text="@string/joined"
+                            style="@style/Subheader1"/>
+                        <TextView
+                            android:id="@+id/joined_view"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            tools:text="today"/>
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_marginBottom="@dimen/spacing_medium">
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:layout_height="wrap_content"
+                            android:text="@string/last_login"
+                            style="@style/Subheader1"/>
+                        <TextView
+                            android:id="@+id/last_login_view"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            tools:text="today"/>
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:layout_height="wrap_content"
+                            android:text="@string/total_checkins"
+                            style="@style/Subheader1"/>
+                        <TextView
+                            android:id="@+id/total_checkins_view"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            tools:text="100"/>
+                    </LinearLayout>
+                </LinearLayout>
+            </FrameLayout>
+
+            <FrameLayout
+                style="@style/FlatCardView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    style="?android:attr/buttonBarStyle">
+                    <Button
+                        android:id="@+id/send_message_button"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="wrap_content"
+                        android:text="@string/profile_send_message"
+                        style="?android:attr/buttonBarButtonStyle"
+                        android:textAllCaps="false"
+                        android:drawableTint="?colorPrimary"
+                        android:textSize="13sp"
+                        android:drawableTop="@drawable/icon_messages"/>
+                    <Button
+                        android:id="@+id/gift_gems_button"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="wrap_content"
+                        android:text="@string/profile_gift_gems"
+                        style="?android:attr/buttonBarButtonStyle"
+                        android:drawableTint="?colorPrimary"
+                        android:textAllCaps="false"
+                        android:textSize="13sp"
+                        android:drawableTop="@drawable/icon_gift_gems"/>
+                    <Button
+                        android:id="@+id/gift_subscription_button"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="wrap_content"
+                        android:text="@string/profile_gift_subscription"
+                        style="?android:attr/buttonBarButtonStyle"
+                        android:drawableTint="?colorPrimary"
+                        android:textAllCaps="false"
+                        android:textSize="13sp"
+                        android:drawableTop="@drawable/icon_gift_subscription"/>
+                </LinearLayout>
+            </FrameLayout>
+
+            <FrameLayout
+                style="@style/FlatCardView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <LinearLayout
+                    style="@style/CardContent"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        style="@style/CardTitle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/battle_gear"
+                        android:textStyle="bold" />
+                    <TableLayout
+                        android:id="@+id/equipment_table_layout"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:shrinkColumns="1"
+                        android:stretchColumns="0" />
+                </LinearLayout>
+            </FrameLayout>
+
+            <FrameLayout
+                style="@style/FlatCardView"
+                android:id="@+id/costume_card"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <LinearLayout
+                    style="@style/CardContent"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        style="@style/CardTitle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/costume"
+                        android:textStyle="bold" />
+                    <TableLayout
+                        android:id="@+id/costume_table_layout"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:shrinkColumns="1"
+                        android:stretchColumns="0" />
+                </LinearLayout>
+            </FrameLayout>
+
+            <FrameLayout
+                style="@style/FlatCardView"
+                android:id="@+id/attributes_card_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:clickable="true"
+                android:foreground="?android:attr/selectableItemBackground">
+
+                <LinearLayout
+                    style="@style/CardContent"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:weightSum="1">
+
+                    <TableLayout
+                        android:id="@+id/attributes_table_layout"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:stretchColumns="0,1,2,3,4">
+
+                        <TableRow android:layout_height="wrap_content">
+                            <!-- Headers -->
+
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content">
+
+                                <TextView
+                                    style="@style/CardTitle"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="@string/attributes"
+                                    android:textStyle="bold" />
+
+                                <androidx.appcompat.widget.AppCompatImageView
+                                    android:id="@+id/attributes_collapse_icon"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    app:srcCompat="@drawable/ic_keyboard_arrow_right_black_24dp"
+                                    android:layout_gravity="bottom" />
+
+                            </LinearLayout>
+
+                            <TextView
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:text="STR" />
+
+                            <TextView
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:text="INT" />
+
+                            <TextView
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:text="CON" />
+
+                            <TextView
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:text="PER" />
+                        </TableRow>
+
+                    </TableLayout>
+                </LinearLayout>
+            </FrameLayout>
+
+
+            <FrameLayout
+                style="@style/FlatCardView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <LinearLayout
+                    style="@style/CardContent"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:weightSum="1">
+
+                    <TextView
+                        style="@style/CardTitle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/profile_pets_and_mounts"
+                        android:textStyle="bold" />
+
+                    <TableLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:stretchColumns="0,1">
+
+                        <TableRow
+                            android:layout_height="wrap_content"
+                            android:gravity="center_vertical">
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="@string/profile_pets_found" />
+
+                            <TextView
+                                android:id="@+id/pets_found_count"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                tools:text="#" />
+                            <ImageView
+                                android:id="@+id/current_pet_drawee"
+                                android:layout_width="40dp"
+                                android:layout_height="40dp"/>
+                        </TableRow>
+
+                        <TableRow android:layout_height="wrap_content"
+                            android:gravity="center_vertical">
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="@string/profile_mounts_tamed" />
+
+                            <TextView
+                                android:id="@+id/mounts_tamed_count"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                tools:text="#" />
+                            <ImageView
+                                android:id="@+id/current_mount_drawee"
+                                android:layout_width="40dp"
+                                android:layout_height="40dp"/>
+                        </TableRow>
+                    </TableLayout>
+                </LinearLayout>
+            </FrameLayout>
+
+
+            <FrameLayout
+                style="@style/FlatCardView"
+                android:id="@+id/profile_achievements_card"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <LinearLayout
+                    style="@style/CardContent"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        style="@style/CardTitle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/profile_achievements"
+                        android:textStyle="bold" />
+
+                    <com.habitrpg.android.habitica.ui.helpers.RecyclerViewEmptySupport
+                        android:id="@+id/achievement_group_list"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:scrollbarSize="3dp"
+                        android:scrollbarThumbVertical="@color/scrollbarThumb"
+                        android:scrollbars="vertical" />
+                </LinearLayout>
+            </FrameLayout>
+
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+</LinearLayout>
