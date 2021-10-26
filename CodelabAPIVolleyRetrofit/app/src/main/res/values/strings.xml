@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">API_Libs</string>
+    <string name="default_text">Haga clic en el botón para cargar información</string>
+    <string name="post_text">Haga clic en el botón para crear un dato</string>
+    <string name="put_text">Haga clic en el botón para modificar un dato</string>
+    <string name="fetch_label">Obtener coleccionistas</string>
+    <string name="post_label">Crear coleccionista</string>
+    <string name="put_label">Modificar coleccionista</string>
+    <string name="id_hint">ID</string>
+    <string name="name_hint">John Doe</string>
+    <string name="phone_hint">3112223344</string>
+    <string name="mail_hint">example@domain.com</string>
+    <string name="action_switch_layout">Cambiar actividad</string>
+</resources>
