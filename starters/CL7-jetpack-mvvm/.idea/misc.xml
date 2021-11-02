@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/Users/Juanito/Documents/Juan/Uniandes/MISIS/asistencia/moviles/MISW4104-Ejemplos/starters/CL7-jetpack-mvvm/app/src/main/res/layout/album_item.xml" value="0.1" />
+        <entry key="..\:/Users/Juanito/Documents/Juan/Uniandes/MISIS/asistencia/moviles/MISW4104-Ejemplos/starters/CL7-jetpack-mvvm/app/src/main/res/layout/collector_item.xml" value="0.1" />
+        <entry key="..\:/Users/Juanito/Documents/Juan/Uniandes/MISIS/asistencia/moviles/MISW4104-Ejemplos/starters/CL7-jetpack-mvvm/app/src/main/res/layout/comment_fragment.xml" value="0.1" />
+        <entry key="..\:/Users/Juanito/Documents/Juan/Uniandes/MISIS/asistencia/moviles/MISW4104-Ejemplos/starters/CL7-jetpack-mvvm/app/src/main/res/layout/comment_item.xml" value="0.1" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="11" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+</project>
