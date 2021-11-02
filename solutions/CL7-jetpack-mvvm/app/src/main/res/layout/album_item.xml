@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
-        <variable name="comment" type="com.example.vinyls_jetpack_application.models.Comment"/>
+        <variable name="album" type="com.example.vinyls_jetpack_application.models.Album"/>
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -30,12 +30,12 @@
                     android:id="@+id/textView6"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@{comment.rating}" />
+                    android:text="@{album.name}" />
                 <TextView
                     android:id="@+id/textView5"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@{comment.description}" />
+                    android:text="@{album.description}" />
 
             </LinearLayout>
         </com.google.android.material.card.MaterialCardView>
