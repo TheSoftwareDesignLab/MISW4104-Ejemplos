@@ -9,9 +9,14 @@ import com.android.volley.VolleyError
 import com.example.vinyls_jetpack_application.models.Comment
 import com.example.vinyls_jetpack_application.network.CacheManager
 import com.example.vinyls_jetpack_application.network.NetworkServiceAdapter
+import kotlinx.serialization.decodeFromString
+import kotlinx.serialization.encodeToString
+import kotlinx.serialization.json.Json
 import org.json.JSONArray
 
 class CommentsRepository (val application: Application){
+    val format = Json {  }
+
     suspend fun refreshData(albumId: Int): List<Comment>{
         var comments = getComments(albumId)
         return if(comments.isNullOrEmpty()){
@@ -28,24 +33,21 @@ class CommentsRepository (val application: Application){
 
 
     suspend fun getComments(albumId:Int): List<Comment>{
-        var a = mutableListOf<Comment>()
         val prefs = CacheManager.getPrefs(application.baseContext, CacheManager.ALBUMS_SPREFS)
         if(prefs.contains(albumId.toString())){
             val storedVal = prefs.getString(albumId.toString(), "")
             if(!storedVal.isNullOrBlank()){
                 val resp = JSONArray(storedVal)
-                for (i in 0 until resp.length()) {
-                    val item = resp.getJSONObject(i)
-                    a.add(i, Comment(albumId = albumId, rating = item.getInt("rating").toString(), description = item.getString("description")))
-                }
+                Log.d("deserialize", resp.toString())
+                return format.decodeFromString<List<Comment>>(storedVal)
             }
         }
-        return a
+        return listOf<Comment>()
     }
     suspend fun addComments(albumId:Int, comments: List<Comment>){
         val prefs = CacheManager.getPrefs(application.baseContext, CacheManager.ALBUMS_SPREFS)
         if(!prefs.contains(albumId.toString())){
-            var store = JSONArray(comments).toString()
+            var store = format.encodeToString(comments)
             with(prefs.edit(),{
                 putString(albumId.toString(), store)
                 apply()
