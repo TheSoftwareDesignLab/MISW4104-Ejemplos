@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">Jetpack-codelab</string>
+    <string name="btn_create_comment">Crear comentario</string>
+    <string name="txt_no_collectors">No hay coleccionistas</string>
+    <string name="txt_no_albums">No hay albums</string>
+    <string name="txt_no_comments">No hay comentarios para este album</string>
+    <string name="title_albums">Lista de albums</string>
+    <string name="title_collectors">Coleccionistas</string>
+    <string name="title_comments">Comentarios</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+</resources>
