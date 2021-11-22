@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation"
+    app:startDestination="@id/collectorFragment2">
+    <fragment
+        android:id="@+id/collectorFragment2"
+        android:name="com.example.jetpack_codelab.ui.CollectorFragment"
+        android:label="collector_fragment"
+        tools:layout="@layout/collector_fragment" >
+        <action
+            android:id="@+id/action_collectorFragment2_to_albumFragment2"
+            app:destination="@id/albumFragment2" />
+    </fragment>
+    <fragment
+        android:id="@+id/albumFragment2"
+        android:name="com.example.jetpack_codelab.ui.AlbumFragment"
+        android:label="album_fragment"
+        tools:layout="@layout/album_fragment" >
+        <action
+            android:id="@+id/action_albumFragment2_to_commentsFragment2"
+            app:destination="@id/commentsFragment2" />
+        <argument
+            android:name="collectorId"
+            app:argType="integer" />
+    </fragment>
+    <fragment
+        android:id="@+id/commentsFragment2"
+        android:name="com.example.jetpack_codelab.ui.CommentsFragment"
+        android:label="comments_fragment"
+        tools:layout="@layout/comments_fragment" >
+        <action
+            android:id="@+id/action_commentsFragment2_to_createCommentFragment2"
+            app:destination="@id/createCommentFragment2" />
+        <argument
+            android:name="albumId"
+            app:argType="integer" />
+        <argument
+            android:name="collectorId"
+            app:argType="integer" />
+    </fragment>
+    <fragment
+        android:id="@+id/createCommentFragment2"
+        android:name="com.example.jetpack_codelab.ui.CreateCommentFragment"
+        android:label="fragment_create_comment"
+        tools:layout="@layout/fragment_create_comment" >
+        <argument
+            android:name="albumId"
+            app:argType="integer" />
+        <argument
+            android:name="collectorId"
+            app:argType="integer" />
+    </fragment>
+</navigation>
