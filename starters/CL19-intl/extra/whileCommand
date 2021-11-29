@@ -1,0 +1,1 @@
+while [ "$(adb shell getprop init.svc.bootanim)" != "stopped" ]; do sleep 1; done
