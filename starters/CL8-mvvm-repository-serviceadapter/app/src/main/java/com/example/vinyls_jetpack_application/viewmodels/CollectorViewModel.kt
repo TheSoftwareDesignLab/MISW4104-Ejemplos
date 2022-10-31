@@ -9,7 +9,6 @@ import com.example.vinyls_jetpack_application.repositories.CollectorsRepository
 
 class CollectorViewModel(application: Application) :  AndroidViewModel(application) {
 
-    private val collectorsRepository = CollectorsRepository(application)
 
     private val _collectors = MutableLiveData<List<Collector>>()
 
@@ -31,7 +30,7 @@ class CollectorViewModel(application: Application) :  AndroidViewModel(applicati
     }
 
     private fun refreshDataFromNetwork() {
-        collectorsRepository.refreshData({
+        NetworkServiceAdapter.getInstance(getApplication()).getCollectors({
             _collectors.postValue(it)
             _eventNetworkError.value = false
             _isNetworkErrorShown.value = false

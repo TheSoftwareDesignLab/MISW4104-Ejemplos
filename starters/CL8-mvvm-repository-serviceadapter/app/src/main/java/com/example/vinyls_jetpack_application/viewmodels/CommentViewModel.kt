@@ -10,7 +10,6 @@ import com.example.vinyls_jetpack_application.repositories.CommentsRepository
 
 class CommentViewModel(application: Application, albumId: Int) :  AndroidViewModel(application) {
 
-    private val commentsRepository = CommentsRepository(application)
 
     private val _comments = MutableLiveData<List<Comment>>()
 
@@ -34,7 +33,7 @@ class CommentViewModel(application: Application, albumId: Int) :  AndroidViewMod
     }
 
     private fun refreshDataFromNetwork() {
-        commentsRepository.refreshData(id, {
+        NetworkServiceAdapter.getInstance(getApplication()).getComments(id, {
             _comments.postValue(it)
             _eventNetworkError.value = false
             _isNetworkErrorShown.value = false
