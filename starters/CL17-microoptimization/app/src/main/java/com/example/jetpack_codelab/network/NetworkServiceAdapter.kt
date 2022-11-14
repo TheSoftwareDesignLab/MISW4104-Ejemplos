@@ -14,7 +14,6 @@ import com.example.jetpack_codelab.models.Collector
 import com.example.jetpack_codelab.models.Comment
 import org.json.JSONArray
 import org.json.JSONObject
-import java.awt.font.NumericShaper
 
 class NetworkServiceAdapter constructor(context: Context) {
     companion object{
@@ -67,11 +66,12 @@ class NetworkServiceAdapter constructor(context: Context) {
                 Response.Listener<String> { response ->
                     val resp = JSONArray(response)
                     val list = mutableListOf<Comment>()
-                    var item:JSONObject? = null
                     for (i in 0 until resp.length()) {
-                        item = resp.getJSONObject(i)
+                        val item = resp.getJSONObject(i)
+                        val rating = item.getInt("rating").toString()
+                        val description = item.getString("description")
                         Log.d("Response", item.toString())
-                        list.add(i, Comment(albumId = albumId, rating = item.getInt("rating").toString(), description = item.getString("description")))
+                        list.add(i, Comment(albumId = albumId, rating = rating, description = description))
                     }
                     onComplete(list)
                 },
