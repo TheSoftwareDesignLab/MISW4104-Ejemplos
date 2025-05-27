@@ -3,6 +3,7 @@ package com.example.jetpack_codelab.viewmodels
 import android.app.Application
 import android.util.Log
 import androidx.lifecycle.*
+import androidx.lifecycle.viewmodel.CreationExtras
 import com.example.jetpack_codelab.models.Album
 import com.example.jetpack_codelab.models.Collector
 import com.example.jetpack_codelab.network.NetworkServiceAdapter
@@ -80,7 +81,7 @@ class CollectorViewModel(application: Application) :  AndroidViewModel(applicati
     }
 
     class Factory(val app: Application) : ViewModelProvider.Factory {
-        override fun <T : ViewModel?> create(modelClass: Class<T>): T {
+        override fun <T : ViewModel> create(modelClass: Class<T>, extras: CreationExtras): T {
             if (modelClass.isAssignableFrom(CollectorViewModel::class.java)) {
                 @Suppress("UNCHECKED_CAST")
                 return CollectorViewModel(app) as T
