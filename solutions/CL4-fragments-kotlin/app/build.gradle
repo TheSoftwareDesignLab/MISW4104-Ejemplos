@@ -21,13 +21,14 @@ plugins {
 }
 
 android {
-    compileSdkVersion 30
+    namespace "com.example.wordsapp"
+    compileSdk 34
     buildToolsVersion "30.0.2"
 
     defaultConfig {
         applicationId "com.example.wordsapp"
         minSdkVersion 19
-        targetSdkVersion 30
+        targetSdk 34
         versionCode 1
         versionName "1.0"
 
@@ -41,12 +42,12 @@ android {
         }
     }
     compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_8
-        targetCompatibility JavaVersion.VERSION_1_8
+        sourceCompatibility JavaVersion.VERSION_21
+        targetCompatibility JavaVersion.VERSION_21
     }
 
     kotlinOptions {
-        jvmTarget = '1.8'
+        jvmTarget = '21'
     }
 
     buildFeatures {
