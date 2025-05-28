@@ -3,6 +3,7 @@ package com.example.jetpack_codelab.viewmodels
 import android.app.Application
 import android.util.Log
 import androidx.lifecycle.*
+import androidx.lifecycle.viewmodel.CreationExtras
 import com.example.jetpack_codelab.models.Collector
 import com.example.jetpack_codelab.models.Comment
 import com.example.jetpack_codelab.network.NetworkServiceAdapter
@@ -110,7 +111,7 @@ class CommentsViewModel (application: Application, albumId: Int) :  AndroidViewM
 
 
     class Factory(val app: Application, val albumId: Int) : ViewModelProvider.Factory {
-        override fun <T : ViewModel?> create(modelClass: Class<T>): T {
+        override fun <T : ViewModel> create(modelClass: Class<T>, extras: CreationExtras): T {
             if (modelClass.isAssignableFrom(CommentsViewModel::class.java)) {
                 @Suppress("UNCHECKED_CAST")
                 return CommentsViewModel(app, albumId) as T
