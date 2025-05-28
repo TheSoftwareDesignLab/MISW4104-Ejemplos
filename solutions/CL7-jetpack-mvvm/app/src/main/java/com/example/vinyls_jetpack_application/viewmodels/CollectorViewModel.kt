@@ -2,6 +2,7 @@ package com.example.vinyls_jetpack_application.viewmodels
 
 import android.app.Application
 import androidx.lifecycle.*
+import androidx.lifecycle.viewmodel.CreationExtras
 import com.example.vinyls_jetpack_application.models.Collector
 import com.example.vinyls_jetpack_application.network.NetworkServiceAdapter
 
@@ -41,7 +42,7 @@ class CollectorViewModel(application: Application) :  AndroidViewModel(applicati
     }
 
     class Factory(val app: Application) : ViewModelProvider.Factory {
-        override fun <T : ViewModel?> create(modelClass: Class<T>): T {
+        override fun <T : ViewModel> create(modelClass: Class<T>, extras: CreationExtras): T {
             if (modelClass.isAssignableFrom(CollectorViewModel::class.java)) {
                 @Suppress("UNCHECKED_CAST")
                 return CollectorViewModel(app) as T
