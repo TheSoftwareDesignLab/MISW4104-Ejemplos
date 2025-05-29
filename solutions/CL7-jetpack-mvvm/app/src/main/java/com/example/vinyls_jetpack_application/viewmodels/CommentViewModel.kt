@@ -2,6 +2,7 @@ package com.example.vinyls_jetpack_application.viewmodels
 
 import android.app.Application
 import androidx.lifecycle.*
+import androidx.lifecycle.viewmodel.CreationExtras
 import com.example.vinyls_jetpack_application.models.Comment
 import com.example.vinyls_jetpack_application.network.NetworkServiceAdapter
 
@@ -43,7 +44,7 @@ class CommentViewModel(application: Application, albumId: Int) :  AndroidViewMod
     }
 
     class Factory(val app: Application, val albumId: Int) : ViewModelProvider.Factory {
-        override fun <T : ViewModel?> create(modelClass: Class<T>): T {
+        override fun <T : ViewModel> create(modelClass: Class<T>, extras: CreationExtras): T {
             if (modelClass.isAssignableFrom(CommentViewModel::class.java)) {
                 @Suppress("UNCHECKED_CAST")
                 return CommentViewModel(app, albumId) as T

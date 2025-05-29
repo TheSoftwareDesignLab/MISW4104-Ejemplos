@@ -2,6 +2,7 @@ package com.example.jetpack_codelab.viewmodels
 
 import android.app.Application
 import androidx.lifecycle.*
+import androidx.lifecycle.viewmodel.CreationExtras
 import com.example.jetpack_codelab.models.Album
 import com.example.jetpack_codelab.models.Collector
 import com.example.jetpack_codelab.network.NetworkServiceAdapter
@@ -76,7 +77,7 @@ class AlbumViewModel(application: Application) :  AndroidViewModel(application) 
     }
 
     class Factory(val app: Application) : ViewModelProvider.Factory {
-        override fun <T : ViewModel?> create(modelClass: Class<T>): T {
+        override fun <T : ViewModel> create(modelClass: Class<T>, extras: CreationExtras): T {
             if (modelClass.isAssignableFrom(AlbumViewModel::class.java)) {
                 @Suppress("UNCHECKED_CAST")
                 return AlbumViewModel(app) as T
